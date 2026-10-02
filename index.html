@@ -27,8 +27,8 @@ table{border-collapse:collapse;width:100%;font-size:12px}th,td{padding:4px 6px;b
 .lg{font-size:11px;color:var(--mu);margin-top:4px}.lg u{display:inline-block;width:10px;height:10px;margin:0 3px 0 8px;text-decoration:none}
 .bd{padding:1px 7px;border-radius:9px;font-size:11px;color:#fff}
 </style></head><body><div class="w">
-<h1>Dashboard quản trị mạng lưới – TT Phú Thọ</h1>
-<div class="sub">Bản mockup tương tác. Số liệu thật từ file, T1–T9/2026, đơn vị triệu đồng. KPI tháng = KPI năm × tỷ trọng tháng; mốc bình quân = KPI bán lẻ tháng ÷ 21.</div>
+<h1>Cập nhật doanh thu PPBL – TT Phú Thọ</h1>
+<div class="sub">Số liệu cập nhật T1–T9/2026, đơn vị triệu đồng. KPI tháng = KPI năm × tỷ trọng tháng; mốc bình quân = KPI bán lẻ tháng ÷ 21.</div>
 <div class="f"><label>Tháng <select id="m"></select></label>
 <span id="ch"></span>
 <label>Nhóm <select id="g"><option value="all">Tất cả</option><option>A</option><option>B</option><option>C</option><option>D</option></select></label><label><input type="checkbox" id="vp"> Gồm VP BĐTT (tab Hiệu suất)</label></div>
@@ -99,7 +99,7 @@ s+=`<polyline fill="none" stroke="var(--ac)" stroke-width="2.5" points="${[0,...
 A.forEach((v,i)=>s+=`<text x="${X(i+1)}" y="${Y(v)-6}" text-anchor="middle">${f0(v)}</text>`);
 s+='</svg><div class="lg"><u style="background:var(--ac)"></u>Lũy kế thực hiện T9<u style="background:var(--r)"></u>Mốc 20/45/70/100% KPI tháng ('+f0(k)+'). Cuối tuần 2 mới đạt 27% KPI tháng (mốc 45%), nhưng tuần 4 chiếm 69% doanh thu.</div>';
 const I=[['Giao KPI nội bộ theo bưu cục','Đầu T10'],['Quản trị theo 4 nhóm A–D','T10–T12'],['Nhịp điều hành tuần','Từ T10'],['Nhân rộng thực hành tốt','T11'],['Phục hồi nhóm D, xác minh 2 đơn vị bằng 0','T10–T11'],['Mở rộng B2B ngoài VP','T10–T11'],['Chuẩn bị mùa vụ T12','Cuối T11'],['Chuẩn hoá dữ liệu và dashboard','15/10']];
-return '<div class="c"><h3>Nhịp tuần T9: lũy kế so với mốc</h3>'+s+'</div><div class="c"><h3>Theo dõi 8 sáng kiến (minh hoạ)</h3><table><tr><th>#</th><th>Sáng kiến</th><th>Hạn</th><th>Trạng thái</th></tr>'+I.map((r,i)=>`<tr><td>${i+1}</td><td>${r[0]}</td><td>${r[1]}</td><td><span class="bd s-${i==7?'y':'r'}">${i==7?'Đang dựng':'Chưa bắt đầu'}</span></td></tr>`).join('')+'</table></div>'}
+return '<div class="c"><h3>Nhịp tuần T9: lũy kế so với mốc</h3>'+s+'</div><div class="c"><h3>Theo dõi 8 tiến độ (minh hoạ)</h3><table><tr><th>#</th><th>Công việc</th><th>Hạn</th><th>Trạng thái</th></tr>'+I.map((r,i)=>`<tr><td>${i+1}</td><td>${r[0]}</td><td>${r[1]}</td><td><span class="bd s-${i==7?'y':'r'}">${i==7?'Đang dựng':'Chưa bắt đầu'}</span></td></tr>`).join('')+'</table></div>'}
 function R(){document.getElementById('v').innerHTML=[t0,t1,t2][S.t]();
 document.getElementById('tb').innerHTML=['Tổng quan','Hiệu suất bưu cục',' Theo tuần & công việc'].map((n,i)=>`<button class="b${i==S.t?' on':''}" onclick="S.t=${i};R()">${n}</button>`).join('');
 document.getElementById('ch').innerHTML=[['all','Tất cả'],['r','Bán lẻ'],['b','B2B']].map(a=>`<button class="b${S.ch==a[0]?' on':''}" onclick="S.ch='${a[0]}';R()">${a[1]}</button>`).join(' ')}
